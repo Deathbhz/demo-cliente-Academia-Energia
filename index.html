@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia em [Sua Cidade] | Musculação, Aulas e Planos | [Nome da Academia]</title>
+<meta name="description" content="Academia com equipamentos modernos, ar-condicionado, professores qualificados e planos a partir de R$ 99/mês. Conheça e comece a treinar.">
+<meta property="og:title" content="[Nome da Academia] | Vem treinar com a gente">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ====== CORES: edite aqui ====== */
+:root{
+  --bg:#0a0a0a; --bg2:#121212; --card:#181818; --line:#2a2a2a;
+  --text:#f2f2f2; --muted:#a0a0a0; --accent:#c6ff00; --accent-text:#0a0a0a; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;line-height:1.05;letter-spacing:.5px}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin-inline:auto}
+section{padding:88px 0}
+.tag{display:inline-block;background:var(--accent);color:var(--accent-text);font-weight:700;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;border-radius:6px;margin-bottom:16px}
+.h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:700;margin-bottom:12px}
+.lead{color:var(--muted);max-width:620px}
+.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;padding:15px 30px;border-radius:999px;font-weight:700;border:2px solid transparent;cursor:pointer;transition:.25s;font-family:inherit;font-size:.98rem}
+.btn-accent{background:var(--accent);color:var(--accent-text)}
+.btn-accent:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(198,255,0,.3)}
+.btn-line{border-color:var(--line);color:var(--text)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Oswald';font-weight:700;font-size:1.6rem;text-transform:uppercase;letter-spacing:1px}
+.brand span{color:var(--accent)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+
+.hero{padding:110px 0 90px;background:radial-gradient(800px 480px at 80% 0,rgba(198,255,0,.16),transparent 60%),var(--bg);overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,6.2rem);font-weight:700;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:520px;margin-bottom:30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{aspect-ratio:1/1.1;border-radius:28px;background:linear-gradient(160deg,#1f2a00,#0e0e0e);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px;font-size:.88rem;position:relative;overflow:hidden}
+.hero-visual::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;border:40px solid rgba(198,255,0,.1);bottom:-100px;left:-80px}
+
+.ticker{background:var(--accent);color:var(--accent-text);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:'Oswald';font-weight:600;font-size:1.2rem;text-transform:uppercase;letter-spacing:2px}
+.ticker div{display:inline-block;animation:move 28s linear infinite}
+@keyframes move{to{transform:translateX(-50%)}}
+
+.hours{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.hours div,.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.hours small{color:var(--muted);display:block}
+.hours strong{font-family:'Oswald';font-size:1.7rem;color:var(--accent)}
+
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.area{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 22px;text-align:center;transition:.3s}
+.area:hover{border-color:var(--accent);transform:translateY(-6px)}
+.area .e{font-size:2.2rem;margin-bottom:10px}
+.area h3{font-size:1.25rem}
+.area p{color:var(--muted);font-size:.88rem;margin-top:6px}
+
+.alt{background:var(--bg2)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;position:relative}
+.plan.best{border:2px solid var(--accent);transform:scale(1.03)}
+.plan .flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--accent-text);font-size:.72rem;font-weight:800;padding:5px 14px;border-radius:999px;letter-spacing:1px;text-transform:uppercase}
+.plan h3{font-size:1.9rem}
+.plan .price{font-family:'Oswald';font-size:3.2rem;font-weight:700;margin:12px 0 2px;color:var(--accent)}
+.plan .price small{font-size:1rem;color:var(--muted);font-family:'Inter';font-weight:400}
+.plan .note{color:var(--muted);font-size:.85rem;margin-bottom:20px}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:26px;flex:1;font-size:.93rem}
+.plan li::before{content:"✓ ";color:var(--accent);font-weight:800}
+
+.classes{margin-top:40px;display:grid;gap:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.tab{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--text);cursor:pointer;font:inherit}
+.tab.on{background:var(--accent);color:var(--accent-text);border-color:var(--accent);font-weight:700}
+.row{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.row b{font-family:'Oswald';font-size:1.3rem;color:var(--accent)}
+.row small{color:var(--muted)}
+
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.person{text-align:center}
+.avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--accent),#6b8f00);display:grid;place-items:center;font-size:2.4rem}
+.person p{color:var(--muted);font-size:.9rem}
+
+.cta{background:var(--accent);color:var(--accent-text);border-radius:30px;padding:60px;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.8rem,4vw,2.8rem)}
+.cta .btn{background:var(--accent-text);color:var(--accent)}
+
+.faq{max-width:760px;margin:40px auto 0;display:grid;gap:12px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+summary{font-weight:600;cursor:pointer}
+details p{color:var(--muted);margin-top:10px;font-size:.93rem}
+
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
+.contact p{margin:10px 0;color:var(--muted)}.contact b{color:var(--text)}
+.map{min-height:320px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:grid;place-items:center;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.86rem}
+.wa{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:1.7rem;z-index:60;box-shadow:0 10px 26px rgba(37,211,102,.45)}
+
+@media(max-width:900px){
+  .hero .container,.contact{grid-template-columns:1fr}
+  .areas{grid-template-columns:1fr 1fr}.plans,.team,.hours{grid-template-columns:1fr}
+  .plan.best{transform:none}
+  nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line)}
+  nav.open{display:block}nav ul{flex-direction:column;padding:20px 5%}
+  .burger{display:block}.nav>.btn{display:none}.hero-visual{display:none}
+}
+@media(max-width:560px){section{padding:60px 0}.cta{padding:34px}.row{grid-template-columns:70px 1fr}.row .btn{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">[Nome da <span>Academia</span>]</a>
+    <nav id="menu"><ul>
+      <li><a href="#estrutura">Estrutura</a></li><li><a href="#planos">Planos</a></li>
+      <li><a href="#aulas">Aulas</a></li><li><a href="#equipe">Equipe</a></li><li><a href="#contato">Contato</a></li>
+    </ul></nav>
+    <a class="btn btn-accent" href="#planos">Quero treinar</a>
+    <button class="burger" aria-label="Menu" onclick="menu.classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="tag">Matrículas abertas</span>
+      <h1>Treine <em>sem limites</em></h1>
+      <p>Equipamentos modernos, ar-condicionado, professores qualificados e aulas coletivas para você alcançar seus objetivos em [Cidade].</p>
+      <div class="actions">
+        <a class="btn btn-accent" href="#planos">Ver planos</a>
+        <a class="btn btn-line" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Aula experimental</a>
+      </div>
+    </div>
+    <div class="hero-visual">[Foto ou vídeo da academia]<br>Use &lt;img src="foto.jpg"&gt;</div>
+  </div>
+</section>
+
+<div class="ticker"><div>Musculação ✦ Funcional ✦ Cardio ✦ Aulas coletivas ✦ Avaliação física ✦ Musculação ✦ Funcional ✦ Cardio ✦ Aulas coletivas ✦ Avaliação física ✦ Musculação ✦ Funcional ✦ Cardio ✦ Aulas coletivas ✦ Avaliação física ✦ Musculação ✦ Funcional ✦ Cardio ✦ Aulas coletivas ✦ Avaliação física ✦</div></div>
+
+<section id="estrutura">
+  <div class="container">
+    <span class="tag">Horários</span>
+    <h2 class="h2">Abertos quando você precisa</h2>
+    <div class="hours">
+      <div><small>Segunda a sexta</small><strong>05h30 – 23h</strong></div>
+      <div><small>Sábado e feriados</small><strong>08h – 17h</strong></div>
+      <div><small>Domingo</small><strong>08h – 14h</strong></div>
+    </div>
+    <h2 class="h2" style="margin-top:70px">Estrutura completa</h2>
+    <p class="lead">Tudo para seu treino render do começo ao fim.</p>
+    <div class="areas">
+      <div class="area"><div class="e">🏋️</div><h3>Musculação</h3><p>Equipamentos de alta performance</p></div>
+      <div class="area"><div class="e">🏃</div><h3>Cardio</h3><p>Esteiras, bikes e elípticos</p></div>
+      <div class="area"><div class="e">🤸</div><h3>Funcional</h3><p>Área ampla para treinos em grupo</p></div>
+      <div class="area"><div class="e">❄️</div><h3>Climatizada</h3><p>Ar-condicionado em todo o espaço</p></div>
+      <div class="area"><div class="e">🚿</div><h3>Vestiários</h3><p>Ducha aquecida e armários</p></div>
+      <div class="area"><div class="e">🅿️</div><h3>Estacionamento</h3><p>Comodidade para você</p></div>
+      <div class="area"><div class="e">📊</div><h3>Bioimpedância</h3><p>Acompanhe sua evolução</p></div>
+      <div class="area"><div class="e">👨‍🏫</div><h3>Professores</h3><p>Formados e sempre por perto</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="planos">
+  <div class="container" style="text-align:center">
+    <span class="tag">Planos</span>
+    <h2 class="h2">Escolha o seu plano</h2>
+    <p class="lead" style="margin-inline:auto">Valores promocionais por tempo limitado. Edite os preços direto no HTML.</p>
+    <div class="plans" style="text-align:left">
+      <div class="plan"><h3>Básico</h3><div class="price">R$ 99<small>,90/mês</small></div><p class="note">Adesão grátis</p>
+        <ul><li>Acesso à musculação</li><li>Avaliação física inicial</li><li>Treino personalizado</li></ul>
+        <a class="btn btn-line" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Começar agora</a></div>
+      <div class="plan best"><span class="flag">Mais vantajoso</span><h3>Premium</h3><div class="price">R$ 129<small>,90/mês</small></div><p class="note">1º mês grátis</p>
+        <ul><li>Tudo do Básico</li><li>Aulas coletivas ilimitadas</li><li>5 convites por mês</li><li>Bioimpedância mensal</li></ul>
+        <a class="btn btn-accent" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Começar agora</a></div>
+      <div class="plan"><h3>Família</h3><div class="price">R$ 99<small>,90/pessoa</small></div><p class="note">A partir de 2 pessoas</p>
+        <ul><li>Acesso à musculação</li><li>Aulas coletivas</li><li>Desconto progressivo</li></ul>
+        <a class="btn btn-line" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Começar agora</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="aulas">
+  <div class="container">
+    <span class="tag">Aulas coletivas</span>
+    <h2 class="h2">Grade de horários</h2>
+    <div class="tabs" id="tabs"></div>
+    <div class="classes" id="classes"></div>
+  </div>
+</section>
+
+<section class="alt" id="equipe">
+  <div class="container" style="text-align:center">
+    <span class="tag">Equipe</span>
+    <h2 class="h2">Gente que te ajuda a chegar lá</h2>
+    <div class="team">
+      <div class="person"><div class="avatar">🧑‍💼</div><h3>Recepção</h3><p>Dúvidas sobre planos e a operação? Fale com a gente no balcão.</p></div>
+      <div class="person"><div class="avatar">💪</div><h3>Professores</h3><p>Montam treinos, dão aulas e acompanham sua evolução.</p></div>
+      <div class="person"><div class="avatar">⭐</div><h3>Gerência</h3><p>Responsável pelo bom funcionamento da unidade.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <div><h2>Sua primeira aula é por nossa conta</h2><p>Venha conhecer a academia sem compromisso.</p></div>
+      <a class="btn" href="https://wa.me/5500000000000?text=Quero%20agendar%20minha%20aula%20experimental" target="_blank" rel="noopener">Agendar aula experimental</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container" style="text-align:center">
+    <span class="tag">Dúvidas</span>
+    <h2 class="h2">Perguntas frequentes</h2>
+    <div class="faq" style="text-align:left">
+      <details><summary>Preciso pagar taxa de adesão?</summary><p>Depende do plano escolhido. Consulte as condições vigentes na recepção.</p></details>
+      <details><summary>Posso trazer um amigo?</summary><p>Sim, nos planos Premium você tem convites mensais.</p></details>
+      <details><summary>Tem professor para me orientar?</summary><p>Sim. Nossa equipe está disponível em todos os horários.</p></details>
+      <details><summary>Como cancelar?</summary><p>Conforme contrato. Nossa equipe explica tudo antes da matrícula.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container contact">
+    <div>
+      <span class="tag">Contato</span>
+      <h2 class="h2">Venha nos conhecer</h2>
+      <p><b>Endereço:</b> Av. Exemplo, 000 - Bairro, Cidade - UF</p>
+      <p><b>Telefone:</b> (00) 0000-0000</p>
+      <p><b>WhatsApp:</b> (00) 90000-0000</p>
+      <p><b>Instagram:</b> @suaacademia</p>
+    </div>
+    <div class="map">[Cole aqui o iframe do Google Maps]</div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="ano"></span> [Nome da Academia] • CNPJ 00.000.000/0001-00</footer>
+<a class="wa" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+<script>
+  const menu = document.getElementById('menu');
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // ====== GRADE DE AULAS: edite aqui ======
+  const grade = {
+    "Seg": [["06:00","Funcional","45 min"],["18:30","Spinning","50 min"],["19:30","Ritmos","50 min"]],
+    "Ter": [["07:00","Pilates solo","50 min"],["18:30","Funcional","45 min"],["20:00","Alongamento","30 min"]],
+    "Qua": [["06:00","Spinning","50 min"],["18:30","Ritmos","50 min"],["19:30","Localizada","45 min"]],
+    "Qui": [["07:00","Funcional","45 min"],["18:30","Pilates solo","50 min"]],
+    "Sex": [["06:00","Ritmos","50 min"],["18:00","Spinning","50 min"]],
+    "Sáb": [["09:00","Aulão de funcional","60 min"]]
+  };
+  const tabs = document.getElementById('tabs'), list = document.getElementById('classes');
+  function show(dia){
+    [...tabs.children].forEach(b => b.classList.toggle('on', b.textContent === dia));
+    list.innerHTML = grade[dia].map(([h,n,d]) =>
+      `<div class="row"><b>${h}</b><div>${n}<br><small>${d}</small></div><a class="btn btn-line" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Reservar</a></div>`).join('');
+  }
+  Object.keys(grade).forEach(d => { const b = document.createElement('button'); b.className='tab'; b.textContent=d; b.onclick=()=>show(d); tabs.appendChild(b); });
+  show("Seg");
+</script>
+</body>
+</html>
